@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Button effects */
+.btn-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-gradient:hover::before {
+  left: 100%;
+}
+
+/* Responsive Styles for Swap Widget */
+@media (max-width: 768px) {
+  .glass-dark {
+    padding: 1.25rem !important;
+    border-radius: 1rem !important;
+  }
+  
+  /* Adjust container padding on mobile */
+  .container {
+    padding: 1rem !important;
+  }
+  
+  /* Make modals responsive */
+  .fixed.inset-0 {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Swap widget specific */
+  .glass-dark {
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+    margin: 0.5rem !important;
+  }
+  
+  /* Responsive text sizes */
+  .text-2xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .text-lg {
+    font-size: 1rem !important;
+  }
+  
+  /* Responsive padding/margins */
+  .p-6 {
+    padding: 1rem !important;
+  }
+  
+  .p-4 {
+    padding: 0.875rem !important;
+  }
+  
+  .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Responsive buttons */
+  .rounded-xl {
+    border-radius: 0.75rem !important;
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem !important;
+  }
+  
+  /* Token selector adjustments */
+  .max-w-lg {
+    max-width: 100% !important;
+  }
+  
+  /* Input fields */
+  input[type="text"],
+  input[type="number"] {
+    font-size: 1rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  /* Buttons */
+  button {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Feature cards responsive */
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Modal responsive */
+  .max-w-md {
+    max-width: 100% !important;
+    margin: 0.5rem !important;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .glass-dark {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .mb-6 {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 380px) {
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .p-6 {
+    padding: 0.75rem !important;
+  }
+  
+  /* Reduce button padding */
+  .py-4 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}

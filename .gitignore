@@ -1,0 +1,36 @@
+node_modules
+.env
+.env.local
+
+# Hardhat files
+cache
+artifacts
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Foundry
+out/
+lib/
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backups
+web/src_backup/
+web/public/*.backup
+
+# Build
+web/build/

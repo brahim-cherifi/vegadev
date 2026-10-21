@@ -1,0 +1,28 @@
+{
+  "name": "kyber-obfuscated-swapper",
+  "version": "2.0.0",
+  "description": "BSC token swapper using KyberSwap aggregator for optimized routing",
+  "main": "scripts/kyber-helper.js",
+  "scripts": {
+    "quote": "node scripts/getQuote.js",
+    "swap": "node scripts/swapWithQuote.js",
+    "build-swap": "node scripts/kyber-helper.js",
+    "compile": "forge build",
+    "deploy-kyber": "forge script script/DeployKyber.s.sol:DeployKyberScript --rpc-url bsc --broadcast",
+    "deploy-testnet": "forge script script/DeployKyber.s.sol:DeployKyberScript --rpc-url bsc_testnet --broadcast"
+  },
+  "keywords": [
+    "bsc",
+    "kyberswap",
+    "aggregator",
+    "defi",
+    "smart-contract",
+    "solidity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "ethers": "^5.7.2"
+  }
+}

@@ -1,0 +1,937 @@
+/* VEGA Token Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.vega-token-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Navigation (reusing existing navbar styles) */
+.vega-token-page .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vega-token-page .navbar-container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vega-token-page .nav-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.vega-token-page .nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.vega-token-page .logo-image {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+.vega-token-page .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.vega-token-page .nav-menu {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.vega-token-page .nav-item {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.vega-token-page .nav-item:hover,
+.vega-token-page .nav-item.active {
+  color: #4A90E2;
+}
+
+.vega-token-page .launch-btn {
+  padding: 10px 24px;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.vega-token-page .launch-btn:hover {
+  background: #5A9FF2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.vega-token-page .mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.vega-token-page .hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Hero Section */
+.vega-token-hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(80, 227, 194, 0.1) 0%, transparent 50%);
+}
+
+.vega-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  text-align: center;
+}
+
+.vega-token-logo-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 32px;
+  background: linear-gradient(135deg, #00B4DB, #0083B0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 60px rgba(0, 180, 219, 0.6),
+              0 0 100px rgba(0, 180, 219, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vega-token-logo-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+    rgba(0, 220, 255, 0.3) 0%, 
+    rgba(0, 180, 219, 0.2) 40%, 
+    transparent 70%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.vega-token-logo-container::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center,
+    transparent 30%,
+    rgba(0, 180, 219, 0.1) 50%,
+    rgba(0, 180, 219, 0.05) 70%,
+    transparent 100%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vega-token-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+  border-radius: 50%;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.vega-token-page .vega-hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.vega-token-page .vega-hero-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+/* Token Stats */
+.vega-token-stats {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.vega-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px 32px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 160px;
+  transition: all 0.3s ease;
+}
+
+.vega-stat-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+}
+
+.vega-stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vega-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4A90E2;
+}
+
+/* Contract Addresses */
+.vega-contract-addresses {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.vega-address-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vega-address-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 144, 226, 0.5);
+}
+
+.vega-chain-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.vega-chain-icon {
+  font-size: 24px;
+}
+
+.vega-chain-icon.bsc {
+  color: #F0B90B;
+}
+
+.vega-chain-icon.base {
+  color: #0052FF;
+}
+
+.vega-chain-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.vega-address-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.vega-address {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  flex: 1;
+}
+
+.vega-copy-btn,
+.vega-explorer-link {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vega-copy-btn:hover,
+.vega-explorer-link:hover {
+  color: #4A90E2;
+  transform: scale(1.1);
+}
+
+/* Hero Actions */
+.vega-hero-actions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vega-btn-primary,
+.vega-btn-secondary {
+  padding: 16px 40px;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.vega-btn-primary {
+  background: linear-gradient(135deg, #4A90E2, #50E3C2);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.vega-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.vega-btn-primary:hover::before {
+  left: 100%;
+}
+
+.vega-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+}
+
+.vega-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.vega-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 144, 226, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Content Tabs */
+.vega-content-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 48px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.vega-tab {
+  padding: 12px 32px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vega-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.vega-tab.active {
+  background: rgba(74, 144, 226, 0.2);
+  border-color: #4A90E2;
+  color: #4A90E2;
+}
+
+/* Content Container */
+.vega-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* Overview Section */
+.vega-overview-section {
+  padding: 0;
+}
+
+.vega-token-page .vega-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.vega-token-page .vega-info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.vega-token-page .vega-info-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.1);
+}
+
+.vega-token-page .vega-info-card h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #4A90E2;
+}
+
+.vega-token-page .vega-info-card p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Tokenomics Section */
+.vega-token-page .vega-tokenomics-section {
+  padding: 48px 0;
+}
+
+.vega-token-page .vega-section-title {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 48px;
+  color: white;
+}
+
+.vega-token-page .tokenomics-container {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+.vega-chart-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.vega-pie-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.vega-chart-slice {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.vega-chart-slice:hover {
+  opacity: 0.8;
+  filter: brightness(1.2);
+}
+
+.vega-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vega-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vega-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.vega-legend-label {
+  flex: 1;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.vega-legend-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Fees Container */
+.vega-fees-container h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: white;
+}
+
+.vega-fee-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vega-fee-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.vega-fee-card:hover {
+  background: rgba(74, 144, 226, 0.1);
+  border-color: rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+.vega-fee-type {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vega-fee-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  color: #4A90E2;
+  margin-bottom: 8px;
+}
+
+.vega-fee-desc {
+  display: block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Features Section */
+.vega-features-section {
+  padding: 0;
+}
+
+.vega-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.vega-feature-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.vega-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4A90E2, #50E3C2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.vega-feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.vega-feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(74, 144, 226, 0.15);
+}
+
+.vega-feature-icon {
+  font-size: 48px;
+  color: #4A90E2;
+  margin-bottom: 20px;
+}
+
+.vega-feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.vega-feature-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* Roadmap Section */
+.vega-roadmap-section {
+  padding: 0;
+}
+
+.vega-roadmap-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.vega-roadmap-phase {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.vega-roadmap-phase.active {
+  background: rgba(74, 144, 226, 0.1);
+  border-color: #4A90E2;
+}
+
+.vega-roadmap-phase.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4A90E2, #50E3C2);
+  border-radius: 16px 16px 0 0;
+}
+
+.vega-roadmap-phase:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+}
+
+.vega-phase-header {
+  margin-bottom: 24px;
+}
+
+.vega-phase-number {
+  display: inline-block;
+  background: rgba(74, 144, 226, 0.2);
+  color: #4A90E2;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.vega-phase-header h3 {
+  font-size: 24px;
+  margin: 12px 0 8px;
+  color: white;
+}
+
+.vega-phase-timeline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vega-phase-items {
+  list-style: none;
+  padding: 0;
+}
+
+.vega-phase-items li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.vega-phase-items li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #4A90E2;
+}
+
+/* CTA Section */
+.vega-token-cta {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(80, 227, 194, 0.1) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.vega-cta-content h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.vega-cta-content p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+
+.vega-cta-buttons {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .vega-token-page .navbar {
+    padding: 0 20px;
+  }
+  
+  .vega-token-page .navbar-container {
+    padding: 0;
+  }
+  
+  .vega-token-page .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .vega-token-page .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+  }
+  
+  .vega-token-page .nav-menu.mobile-open {
+    transform: translateY(0);
+  }
+  
+  .vega-hero-content {
+    padding: 0 24px;
+  }
+  
+  .vega-token-page .vega-section-title {
+    font-size: 32px;
+  }
+  
+  .vega-token-page .vega-hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .vega-token-stats {
+    gap: 16px;
+  }
+  
+  .vega-stat-card {
+    padding: 16px 24px;
+  }
+  
+  .vega-contract-addresses {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .vega-address-card {
+    min-width: 100%;
+  }
+  
+  .vega-tokenomics-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .vega-chart-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .vega-content-tabs {
+    padding: 0 24px;
+    gap: 4px;
+  }
+  
+  .vega-tab {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+  
+  .vega-content-container {
+    padding: 0 24px 60px;
+  }
+  
+  .vega-features-grid,
+  .vega-roadmap-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .vega-cta-content h2 {
+    font-size: 28px;
+  }
+  
+  .vega-btn-primary,
+  .vega-btn-secondary {
+    padding: 14px 32px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vega-token-page .vega-hero-title {
+    font-size: 28px;
+  }
+  
+  .vega-token-logo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .vega-token-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .vega-stat-label {
+    font-size: 12px;
+  }
+  
+  .vega-stat-value {
+    font-size: 20px;
+  }
+  
+  .vega-token-page .vega-section-title {
+    font-size: 28px;
+  }
+  
+  .vega-feature-icon {
+    font-size: 36px;
+  }
+  
+  .vega-phase-header h3 {
+    font-size: 20px;
+  }
+  
+  .vega-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .vega-btn-primary,
+  .vega-btn-secondary {
+    width: 100%;
+  }
+}
